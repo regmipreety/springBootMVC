@@ -2,3 +2,6 @@ body{
     font-style: italic;
     color: darkslategray;
 }
+.error{
+    color: red;
+}

@@ -2,13 +2,14 @@ package com.example.springboot.thymeleaf.controller;
 
 import com.example.springboot.thymeleaf.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +25,11 @@ public class DemoController {
     @Value("${operatingSystems}")
     private List<String> operatingSystems;
 
+    @InitBinder
+    public void initBinder(WebDataBinder dataBinder){
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        dataBinder.registerCustomEditor(String.class,stringTrimmerEditor);
+    }
     //create a mapping for "/hello"
     @GetMapping("/hello")
     public String sayHello(Model theModel) {
@@ -58,8 +64,13 @@ public class DemoController {
         return "helloWorld";
     }
     @RequestMapping("/processFormThree")
-    public String processFormThree(@ModelAttribute("student") Student theStudent) {
-        return "helloWorld";
+    public String processFormThree(@Valid @ModelAttribute("student") Student theStudent, BindingResult theBindingResult) {
+        if(theBindingResult.hasErrors()){
+            return "helloworld-form";
+        }
+        else {
+            return "helloWorld";
+        }
     }
 
 }
