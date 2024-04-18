@@ -24,7 +24,8 @@
                 <td th:text = "${tempEmployee.firstName}"></td>
                 <td th:text = "${tempEmployee.lastName}"></td>
                 <td th:text = "${tempEmployee.email}"></td>
-                <td><button type="button" class="btn btn-outline-primary">Edit</button> <a th:href="@{/employees/delete}" type="button" class="btn btn-outline-primary">Delete</a></td>
+                <td><a th:href="@{/employees/edit(employeeId=${tempEmployee.id})}" type="button" class="btn btn-outline-primary">Edit</a>
+                    <a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}" type="button" class="btn btn-outline-danger">Delete</a></td>
             </tr>
             </tbody>
         </table>
