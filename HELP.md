@@ -25,3 +25,8 @@
 * @InitBinder annotation works as a pre-processor
 * It will pre-process each web request to our controller
 * Method annotated with @InitBinder is executed
+
+## Thymeleaf Expressions
+* th:action => Location to send form
+* th:object => Reference to model attribute
+* th:field => Bind input field to a property on model attribute
