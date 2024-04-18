@@ -17,6 +17,10 @@
     <span th:if="${#fields.hasErrors('lastName')}"
           th:errors="${student.lastName}"
           class="error"></span><br><br>
+    UserName: <input type="text" th:field=" ${student.username}" />
+    <span th:if="${#fields.hasErrors('username')}"
+          th:errors="${student.username}"
+          class="error"></span><br><br>
     Number of Subjects(*): <input type="text" th:field=" ${student.subjects}" placeholder="1,2,.."/>
     <span th:if="${#fields.hasErrors('subjects')}"
           th:errors="${student.subjects}"
@@ -25,6 +29,10 @@
     <select th:field="${student.country}">
         <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}">
     </select><br><br>
+   Postal Code: <input type="text" th:field=" ${student.postalCode}" placeholder="80703"/>
+    <span th:if="${#fields.hasErrors('postalCode')}"
+          th:errors="${student.postalCode}"
+          class="error"></span><br><br>
     Gender:
     <input type="radio" th:field="${student.gender}" th:value="Male">Male</input>
     <input type="radio" th:field="${student.gender}" th:value="Female">Female</input>

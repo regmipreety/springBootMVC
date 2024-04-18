@@ -64,8 +64,11 @@ public class DemoController {
         return "helloWorld";
     }
     @RequestMapping("/processFormThree")
-    public String processFormThree(@Valid @ModelAttribute("student") Student theStudent, BindingResult theBindingResult) {
+    public String processFormThree(@Valid @ModelAttribute("student") Student theStudent, BindingResult theBindingResult, Model theModel) {
         if(theBindingResult.hasErrors()){
+            theModel.addAttribute("countries", countries);
+            theModel.addAttribute("languages", languages);
+            theModel.addAttribute("operatingSystems",operatingSystems);
             return "helloworld-form";
         }
         else {
