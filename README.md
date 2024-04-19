@@ -4,7 +4,7 @@
 * A collection of Spring Beans (controllers, services, etc)
 * Spring configuration (XML, Annotations or Java)
 
-![](C:\Users\priet\Downloads\Spring MVC front controller.png)
+<img src="C:\Users\priet\Downloads\Spring MVC front controller.png"/>
 
 ## Spring MVC front controller
 * Front controller is known as DispatcherServlet
@@ -30,3 +30,8 @@
 * th:action => Location to send form
 * th:object => Reference to model attribute
 * th:field => Bind input field to a property on model attribute
+
+## Spring Security with Servlet Filters
+* Servlet Filters are used to pre-process/ post-process web requests
+* Servlet Filters can route web requests based on security logic
+* Spring provides a bulk of security functionality with servlet filters

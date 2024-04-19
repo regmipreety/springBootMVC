@@ -30,6 +30,10 @@ public class DemoController {
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
         dataBinder.registerCustomEditor(String.class,stringTrimmerEditor);
     }
+    @GetMapping("/")
+    public String showHome(){
+        return "home";
+    }
     //create a mapping for "/hello"
     @GetMapping("/hello")
     public String sayHello(Model theModel) {
