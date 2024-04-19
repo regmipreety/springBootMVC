@@ -34,6 +34,10 @@ public class DemoController {
     public String showHome(){
         return "home";
     }
+    @GetMapping("/login")
+    public String showLoginForm(){
+        return "loginPage";
+    }
     //create a mapping for "/hello"
     @GetMapping("/hello")
     public String sayHello(Model theModel) {
